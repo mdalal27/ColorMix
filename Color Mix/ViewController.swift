@@ -1,6 +1,7 @@
 //
 //  ViewController.swift
 //  Color Mix
+//  Moiz's Color Mix
 
 
 import UIKit

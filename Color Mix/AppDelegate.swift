@@ -1,9 +1,7 @@
 //
 //  AppDelegate.swift
 //  Color Mix
-//
-//  Created by WOLF, CHRISTOPHER (LYHS) on 1/31/20.
-//  Copyright © 2020 Ava Wilson. All rights reserved.
+//  Moiz's Color Mix
 //
 
 import UIKit
