@@ -15,11 +15,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qp8-es-LXx">
-                                <rect key="frame" x="0.0" y="92" width="414" height="307"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3tm-Ae-QKr">
                                 <rect key="frame" x="183" y="472" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -69,7 +64,6 @@
                     <connections>
                         <outlet property="blueSlider" destination="9zq-of-3KC" id="jWF-NJ-9yM"/>
                         <outlet property="blueSwitch" destination="Ogc-YF-UGm" id="n9a-Ct-CUI"/>
-                        <outlet property="colorView" destination="Qp8-es-LXx" id="weH-64-lrg"/>
                         <outlet property="greenSlider" destination="5El-Hk-Jlt" id="kIG-Pr-b74"/>
                         <outlet property="greenSwitch" destination="2I4-kI-g3T" id="Ls1-yl-n4v"/>
                         <outlet property="redSlider" destination="YMG-Mg-g2K" id="I0Y-ki-akd"/>
