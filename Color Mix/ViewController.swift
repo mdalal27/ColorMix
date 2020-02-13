@@ -19,13 +19,18 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var blueSlider: UISlider!
     
+    @IBOutlet weak var greenLabel: UILabel!
+    @IBOutlet weak var redLabel: UILabel!
+    @IBOutlet weak var blueLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         setColor()
+        setText()
     }
 
     @IBAction func sliderChanged(_ sender: UISlider) {
         setColor()
+        setText()
     }
     @IBAction func switchChanged(_ sender: UISwitch){
         setColor()
@@ -39,5 +44,15 @@ class ViewController: UIViewController {
         let color = UIColor(red: red, green: green, blue: blue, alpha: 0.49)
         self.view.backgroundColor = color
     }
+    func setText() {
+        let red = Int(redSlider.value * 100)
+        let blue = Int(redSlider.value * 100)
+        let green = Int(redSlider.value * 100)
+        redLabel.text = "\(red)%"
+        greenLabel.text = "\(green)%"
+        blueLabel.text = "\(blue)%"
+        
+    }
 }
+
 
