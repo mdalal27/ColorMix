@@ -14,9 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var greenSwitch: UISwitch!
     
     @IBOutlet weak var redSlider: UISlider!
-    
     @IBOutlet weak var greenSlider: UISlider!
-    
     @IBOutlet weak var blueSlider: UISlider!
     
     @IBOutlet weak var greenLabel: UILabel!
@@ -44,10 +42,11 @@ class ViewController: UIViewController {
         let color = UIColor(red: red, green: green, blue: blue, alpha: 0.49)
         self.view.backgroundColor = color
     }
+    
     func setText() {
         let red = Int(redSlider.value * 100)
-        let blue = Int(redSlider.value * 100)
-        let green = Int(redSlider.value * 100)
+        let green = Int(greenSlider.value * 100)
+        let blue = Int(blueSlider.value * 100)
         redLabel.text = "\(red)%"
         greenLabel.text = "\(green)%"
         blueLabel.text = "\(blue)%"
