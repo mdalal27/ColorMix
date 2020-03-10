@@ -29,9 +29,11 @@ class ViewController: UIViewController {
     @IBAction func sliderChanged(_ sender: UISlider) {
         setColor()
         setText()
+        checkMatch()
     }
     @IBAction func switchChanged(_ sender: UISwitch){
         setColor()
+        
     }
     
     func setColor() {
@@ -52,6 +54,48 @@ class ViewController: UIViewController {
         blueLabel.text = "\(blue)%"
         
     }
+    
+    func checkMatch() {
+        if (redLabel.text == "27%") && (greenLabel.text == "69%") && (blueLabel.text == "42%") {
+            view.backgroundColor = .black
+        }
+            
+    //begin cited code (https://teamtreehouse.com/community/need-to-know-how-to-get-tapping-a-button-to-make-an-image-appear)
+        class ViewController: UIViewController {
+
+            @IBOutlet weak var catImage: UIImageView!
+            @IBOutlet weak var skyImage: UIImageView!
+
+            @IBAction func catButton(sender: AnyObject) {
+
+                skyImage.isHidden = true
+                catImage.isHidden = false
+            }
+
+            @IBAction func skyButton(sender: AnyObject) {
+
+                catImage.isHidden = true
+                skyImage.isHidden = false
+            }
+
+
+            override func viewDidLoad() {
+                super.viewDidLoad()
+                // Do any additional setup after loading the view, typically from a nib.
+
+                catImage.isHidden = true
+                skyImage.isHidden = true
+            }
+
+            override func didReceiveMemoryWarning() {
+                super.didReceiveMemoryWarning()
+                // Dispose of any resources that can be recreated.
+            }
+
+// end cited code (https://teamtreehouse.com/community/need-to-know-how-to-get-tapping-a-button-to-make-an-image-appear)
+        }
+    }
 }
+
 
 
