@@ -20,10 +20,17 @@ class ViewController: UIViewController {
     @IBOutlet weak var greenLabel: UILabel!
     @IBOutlet weak var redLabel: UILabel!
     @IBOutlet weak var blueLabel: UILabel!
+    @IBOutlet weak var secretImageView: UIImageView!
+    
+    var redSecret: String = ""
+    var greenSecret: String = ""
+    var blueSecret: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setColor()
         setText()
+        setSecrets()
     }
 
     @IBAction func sliderChanged(_ sender: UISlider) {
@@ -31,9 +38,25 @@ class ViewController: UIViewController {
         setText()
         checkMatch()
     }
+    
     @IBAction func switchChanged(_ sender: UISwitch){
         setColor()
+    }
+    
+    
+    func setSecrets() {
+        let red = Int.random(in: 0...100)
+        let green = Int.random(in: 0...100)
+        let blue = Int.random(in: 0...100)
         
+        redSecret = "\(red)%"
+        greenSecret = "\(green)%"
+        blueSecret = "\(blue)%"
+        
+        print("secrets are:")
+        print(redSecret)
+        print(greenSecret)
+        print(blueSecret)
     }
     
     func setColor() {
@@ -56,43 +79,11 @@ class ViewController: UIViewController {
     }
     
     func checkMatch() {
-        if (redLabel.text == "27%") && (greenLabel.text == "69%") && (blueLabel.text == "42%") {
-            view.backgroundColor = .black
-        }
-            
-    //begin cited code (https://teamtreehouse.com/community/need-to-know-how-to-get-tapping-a-button-to-make-an-image-appear)
-        class ViewController: UIViewController {
-
-            @IBOutlet weak var catImage: UIImageView!
-            @IBOutlet weak var skyImage: UIImageView!
-
-            @IBAction func catButton(sender: AnyObject) {
-
-                skyImage.isHidden = true
-                catImage.isHidden = false
-            }
-
-            @IBAction func skyButton(sender: AnyObject) {
-
-                catImage.isHidden = true
-                skyImage.isHidden = false
-            }
-
-
-            override func viewDidLoad() {
-                super.viewDidLoad()
-                // Do any additional setup after loading the view, typically from a nib.
-
-                catImage.isHidden = true
-                skyImage.isHidden = true
-            }
-
-            override func didReceiveMemoryWarning() {
-                super.didReceiveMemoryWarning()
-                // Dispose of any resources that can be recreated.
-            }
-
-// end cited code (https://teamtreehouse.com/community/need-to-know-how-to-get-tapping-a-button-to-make-an-image-appear)
+        if (redLabel.text == redSecret) && (greenLabel.text == greenSecret) && (blueLabel.text == blueSecret) {
+            secretImageView.isHidden = false
+            print("Congrats You Have Discovered the Secret Code!")
+        } else {
+            secretImageView.isHidden = true
         }
     }
 }
