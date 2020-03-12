@@ -78,8 +78,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P9p-Ur-mfz" userLabel="Secret Color View">
+                                <rect key="frame" x="34" y="57" width="338" height="356"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
                             <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="secret" translatesAutoresizingMaskIntoConstraints="NO" id="0oL-Io-7q4">
-                                <rect key="frame" x="20" y="57" width="385" height="356"/>
+                                <rect key="frame" x="9" y="44" width="396" height="369"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -96,6 +101,7 @@
                         <outlet property="redLabel" destination="b9g-iH-UYJ" id="fBg-qs-E2M"/>
                         <outlet property="redSlider" destination="YMG-Mg-g2K" id="I0Y-ki-akd"/>
                         <outlet property="redSwitch" destination="3tm-Ae-QKr" id="MBz-VX-qHh"/>
+                        <outlet property="secretColorView" destination="P9p-Ur-mfz" id="V84-Oy-EqH"/>
                         <outlet property="secretImageView" destination="0oL-Io-7q4" id="YWv-2C-Pfq"/>
                     </connections>
                 </viewController>

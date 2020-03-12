@@ -20,17 +20,21 @@ class ViewController: UIViewController {
     @IBOutlet weak var greenLabel: UILabel!
     @IBOutlet weak var redLabel: UILabel!
     @IBOutlet weak var blueLabel: UILabel!
-    @IBOutlet weak var secretImageView: UIImageView!
     
-    var redSecret: String = ""
-    var greenSecret: String = ""
-    var blueSecret: String = ""
+    @IBOutlet weak var secretImageView: UIImageView!
+    @IBOutlet weak var secretColorView: UIView!
+    
+    
+    var redSecret: CGFloat = 0.0
+    var greenSecret: CGFloat = 0.0
+    var blueSecret: CGFloat = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setColor()
         setText()
         setSecrets()
+        setSecretColor()
     }
 
     @IBAction func sliderChanged(_ sender: UISlider) {
@@ -45,18 +49,14 @@ class ViewController: UIViewController {
     
     
     func setSecrets() {
-        let red = Int.random(in: 0...100)
-        let green = Int.random(in: 0...100)
-        let blue = Int.random(in: 0...100)
-        
-        redSecret = "\(red)%"
-        greenSecret = "\(green)%"
-        blueSecret = "\(blue)%"
+        redSecret = CGFloat.random(in: 0...1)
+        greenSecret = CGFloat.random(in: 0...1)
+        blueSecret = CGFloat.random(in: 0...1)
         
         print("secrets are:")
-        print(redSecret)
-        print(greenSecret)
-        print(blueSecret)
+        print(percent(redSecret))
+        print(percent(greenSecret))
+        print(percent(blueSecret))
     }
     
     func setColor() {
@@ -64,14 +64,14 @@ class ViewController: UIViewController {
         let green: CGFloat = greenSwitch.isOn ? CGFloat(greenSlider.value) : 0
         
         let blue: CGFloat = blueSwitch.isOn ? CGFloat(blueSlider.value) : 0
-        let color = UIColor(red: red, green: green, blue: blue, alpha: 0.49)
+        let color = UIColor(red: red, green: green, blue: blue, alpha: 1)
         self.view.backgroundColor = color
     }
     
     func setText() {
-        let red = Int(redSlider.value * 100)
-        let green = Int(greenSlider.value * 100)
-        let blue = Int(blueSlider.value * 100)
+        let red = percent(redSlider.value)
+        let green = percent(greenSlider.value)
+        let blue = percent(blueSlider.value)
         redLabel.text = "\(red)%"
         greenLabel.text = "\(green)%"
         blueLabel.text = "\(blue)%"
@@ -79,13 +79,27 @@ class ViewController: UIViewController {
     }
     
     func checkMatch() {
-        if (redLabel.text == redSecret) && (greenLabel.text == greenSecret) && (blueLabel.text == blueSecret) {
+        if (percent(redSlider.value) == percent(redSecret))
+            && (percent(greenSlider.value) == percent(greenSecret))
+            && (percent(blueSlider.value) == percent(blueSecret)) {
             secretImageView.isHidden = false
             print("Congrats You Have Discovered the Secret Code!")
         } else {
             secretImageView.isHidden = true
         }
     }
+    
+    func setSecretColor() {
+        let color = UIColor(red: redSecret, green: greenSecret, blue: blueSecret, alpha: 1)
+        secretColorView.backgroundColor = color
+    }
+    
+    // cited code
+    // https://github.com/liamrosenfeld
+    func percent<T: BinaryFloatingPoint>(_ num: T) -> Int {
+        return Int(num * 100)
+    }
+    // end cited code
 }
 
 
